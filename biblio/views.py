@@ -57,13 +57,14 @@ class SignUpView(View):
             request.exiting_user = username
         elif pass_retry != password:
             request.err = 'wrong_retry'
-        elif not self.weak_password(password):
+        elif not self.weak_pass(password):
             request.err = 'weak_pass'
         else:
             user = User.objects.create_user(username=username, password=password)
             login(request, user)
             return redirect(reverse("main"))
         return render(request, "signup.html")
+    
     def weak_pass(self):
         if len() < 8:
             return 1
