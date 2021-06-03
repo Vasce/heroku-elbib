@@ -65,8 +65,8 @@ class SignUpView(View):
             return redirect(reverse("main"))
         return render(request, "signup.html")
     
-    def weak_pass(self):
-        if len() < 8:
+    def weak_pass(self, pass):
+        if len(pass) < 8:
             return 1
         return 0
 
