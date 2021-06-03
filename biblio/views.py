@@ -89,9 +89,19 @@ class PageView(generic.ListView):
     template_name = 'page.html'
     def get_queryset(self):
         query = self.request.GET.get('search_string')
-        if query == None or query == '':
-            return None
-        return Content.objects.filter(Q(author__icontains=query) | Q(title__icontains=query))
+        q_author = self.request.GET.get('search_author')
+        q_title = self.request.GET.get('search_title')
+        q_subject = self.request.GET.get('razdel')
+        
+        if query != None and query != '':
+            return Content.objects.filter(Q(author__icontains=query) | Q(title__icontains=query))
+        elif q_author or q_title or q_subject:
+            if q_author == None or q_author == '':
+                q_author = '-----'
+            if q_title == None or q_title == '':
+                q_title = '-----'
+            return Content.objects.filter(Q(author__icontains=q_author) | Q(title__icontains=q_title))
+        return None
 
 
 class PoiskView(View):

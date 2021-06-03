@@ -51,27 +51,29 @@
         
     
          
+        <form method="GET" action="{% url 'page' %}">
             <div id="search" class="fix">
-                <div class="search">
-                    <input  class="element_search" type="search" name="search_author" placeholder="Автор">
-                    <input class="element_search" type="search" name="search_title" placeholder="Название">
-                
-    
-                    <select class="element_search" name="razdel" class="razdel" >
-                        <optgroup label="Прикладная информатика">
-                        <option value="r1">Сайтостроение</option>
-                        <option value="r2">Алгоритмизация</option>
-                        <option value="r3">ОСиС</option>
-                        </optgroup>
-                        <optgroup label="Библиотечное дело">
-                        <option value="u1">БИС</option>
-                        <option value="u2">АСОД</option>
-                        <option value="u3">БФ</option>
-                        </optgroup>
-                    </select>
+                    <div class="search">
+                        <input class="element_search" type="search" name="search_author" placeholder="Автор">
+                        <input class="element_search" type="search" name="search_title" placeholder="Название">
+                    
+        
+                        <select class="element_search" name="razdel" class="razdel" >
+                            <optgroup label="Прикладная информатика">
+                            <option value="r1">Сайтостроение</option>
+                            <option value="r2">Алгоритмизация</option>
+                            <option value="r3">ОСиС</option>
+                            </optgroup>
+                            <optgroup label="Библиотечное дело">
+                            <option value="u1">БИС</option>
+                            <option value="u2">АСОД</option>
+                            <option value="u3">БФ</option>
+                            </optgroup>
+                        </select>
 
-                    <button class="element_search btnsearch">НАЙТИ</button> 
-                </div>
+                        <button class="element_search btnsearch">НАЙТИ</button> 
+                    </div>
             </div>    
+        </form>
 {% endblock %}
 
