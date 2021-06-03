@@ -1,1 +1,1 @@
-web: gunicorn vikilib.wsgi --log-file -
+web: gunicorn vikilibheroku.wsgi --log-file -
