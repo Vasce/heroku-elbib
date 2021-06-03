@@ -53,6 +53,8 @@
 					<div>Не все поля заполнены.</div>
 				{% elif request.err == 'user_exists' %}
 					<div>Пользователь {{request.exiting_user}} уже существует.</div>
+				{% elif request.err == 'weak_pass' %}
+					<div>Длина пароля должна быть не менее 8 символов.</div>
 				{% endif %}
 			</div>
 		</div>
