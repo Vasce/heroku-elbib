@@ -67,6 +67,7 @@ class SignUpView(View):
         return render(request, "signup.html")
     
     def weak_password(self, pass_string):
+        print(len(pass_string))
         if len(pass_string) < 8:
             return 1
         return 0
