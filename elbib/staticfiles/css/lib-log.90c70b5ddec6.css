@@ -1,0 +1,104 @@
+body {
+	font-family: 'Noto Sans', sans-serif;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+#head{
+	text-align: center;
+}
+
+.log{
+	text-align: center;
+}
+
+main{
+	width: 450px;
+}
+
+.button-enter{
+	text-decoration: none;
+} 
+
+input{
+	height: 40px;
+	width: 100%;
+	font-size: 14px;
+	line-height: 16px;
+	border: 2px solid gray;
+	border-radius: 5px;
+	box-sizing:border-box;
+}
+
+input :active, :hover, :focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
+.login {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	background: antiquewhite;
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  	border-radius: 20px;
+  	padding: 5px 30px 30px;
+	height: 360px;
+	
+}
+
+.buttons button {
+	height: 40px;
+	border-radius: 5px;
+	background: tan;
+	text-transform: uppercase;
+	text-align: center;
+	line-height: 40px;
+	width: 100%;
+}
+.buttons button:hover{
+	background: rgba(210, 180, 140, 0.493);
+}
+
+.enter{
+	display: flex;
+	justify-content: space-around;
+	text-align: center;
+    line-height: 40px;
+    padding: 15px 15px;
+    text-decoration: none;
+}
+
+.enter p {
+	margin-top: 0;
+	margin-right: 10px;
+}
+
+.form {
+	padding: 0;
+	max-width: 395.4px;
+	margin-bottom: 10px;
+}
+
+.btnsignin{
+	display: flex;
+	justify-content: center;
+}
+
+.btnin{
+	display: inline-block;
+	width: 135px;
+	justify-content: center;
+    background-color:  #3d3434f3;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+	margin: 50px 15px 0 15px;
+    font-size: 16px;
+    cursor: pointer;
+}	
+
+.btnin:hover {
+    background-color: #3d3434ad;
+}
