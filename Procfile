@@ -1,1 +1,1 @@
-web: gunicorn vikilibheroku.wsgi --log-file -
+web: gunicorn heroku-elbib.wsgi --log-file -
