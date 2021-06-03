@@ -1,0 +1,92 @@
+{% extends "menu.html" %}
+
+{% load static %}
+
+{% block title %}
+    Электронная библиотека - Поиск
+{% endblock %}
+
+{% block css %}
+	{% static 'css/favorite.css' %}
+{% endblock %}
+
+{% block content %}
+<!-- <input type="checkbox" id="nav-toggle" hidden>
+    <nav class="nav">
+        <label for="nav-toggle" class="nav-toggle" onclick></label>
+        <ul>
+            <li><a href="{% url 'poisk' %}">Расширенный поиск</a>
+            <li><a href="{% url 'main' %}">На главную</a>
+            <li><a href="#">Избранное</a> 
+            <li><a href="{% url 'spravka' %}">Справка</a> 
+            <li><a href="{% url 'logout' %}">Выход</a>
+        </ul>
+    </nav>
+    <div class="mask-content"></div> -->
+
+        
+    
+        <div class="backgr">
+            <div class="header-cont fix">
+                <div id="logotype">
+                    <img id="logo" src="/static/css/logo.png">
+                </div>
+
+                <div id="advanced_search">
+                    <h3>ИЗБРАННОЕ</h3>
+                </div>
+
+                <div class="profile"> 
+                    <div>
+                        <img id="profile-logo" src="/static/css/profile2.jpeg">
+                    </div>     
+    
+                    <div id="profilename">
+                        <p> {{request.user}}</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    <div class="block-book fix">
+		<ul>
+
+        {% if not object_list %}
+        <div>Нет избранных книг</div>
+        {% endif %}
+        
+{% for content in object_list %}
+
+				<div class="book1">
+					<hr>
+
+					<div class="cont">
+						<div class="pic tetete">
+							<img src="{{  content.favorite.image.url }}">
+						</div>
+
+						<div class="title-author" style="font-family: 'Noto Sans', sans-serif">
+							<div id="author" style="color: black;">{{ content.favorite.author }}</div>
+							<div id="title">{{ content.favorite.title }}</div>
+							<div id="bo">{{ content.favorite.bo }}</div>
+						</div>
+
+						<div>
+							<a class="btn" href='{{ content.favorite.book.url }}' target="_blank" >Читать</a>
+							<a class="btn" href='{{ content.favorite.book.url }}' download>Скачать</a>
+                            <a class="btn" href="{% url 'remove' pk=content.pk %}">Удалить</a>
+						</div>
+
+					</div>
+					<hr>
+				</div>
+
+			{% endfor %}
+
+
+		</ul>
+	</div>
+
+
+{% endblock %}

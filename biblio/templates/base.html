@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" type="text/css" href="{% block css %}{% endblock %}">
+        {% block menucss %}{% endblock %} 
+
+    </head>
+    <body style="min-height: 100vh; position: relative;">
+
+        {% block menu %}{% endblock %}
+
+        <div style="padding-bottom: 150px;">{% block content %}{% endblock %}</div>
+
+        
+        <div style="display: flex; justify-content: center; position: absolute; bottom: 0; left: 0; width: 100%; background-color:  #221f1ff3; color: blanchedalmond; min-width: 320px; padding: 20px; margin-top: 50px;">
+            <p style="text-align: center;">&#169; 2021__</p>
+            <p style="text-align: center;">Электронная библиотека "Vikilib"</p>
+        </div>
+
+    </body>
+</html>

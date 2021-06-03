@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+    Электронная библиотека - Вход
+{% endblock %}
+
+{% block css %}
+	{% static 'css/lib-log.css' %}
+{% endblock %}
+
+{% block content %}
+<main>
+    <div>
+        <div id="head">
+            <img id="logo" src="static/css/logotype.png">
+        </div>
+    </div>
+    <div class="login">
+        <h1 class="log">ВХОД</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="forms">
+                <div class="form">
+                    <input type="text" name="username" placeholder="Логин">
+                </div>
+                <div class="form">
+                    <input type="password" name="password" placeholder="Пароль">
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="button">Вход</button>
+            </div>
+        </form>
+        <div class="enter">
+            <p>Не зарегистрированы?</p>
+            <a href="/signup" class="button-enter">Зарегистрируйтесь</a>
+        </div>
+    </div>
+
+    <div class="btnsignin">
+       <a href="{% url 'spravka' %}"><button  class="btnin">Справка</button></a>
+    </div>
+
+</main>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "menu.html" %}
+
+{% load static %}
+
+{% block title %}
+    Электронная библиотека - Главная
+{% endblock %}
+
+{% block css %}
+	{% static 'css/main-css.css' %}
+{% endblock %}
+
+{% block content %}
+	<div class="header-cont">
+        <div id="head">
+                <img id="logo" src="static/css/logotype.png">
+        </div>
+	</div>
+
+	<div class="contents">
+		<form method="GET" action="{% url 'page' %}">
+			<div class="search">
+				<div class="search-text">
+					<input type="text" name="search_string" placeholder="Что хотите найти?">
+				</div>
+				<div><input type="submit" name="" class="search-button"></div>
+			</div>
+		</form>
+
+		<div class="content">
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</div>
+
+		<div class="btnm"> 
+			<button class="btnmain">Справка</button>
+			<a href="{% url 'logout' %}"><button class="btnmain">Выход</button></a>
+		</div>
+
+	</div>
+{% endblock %}

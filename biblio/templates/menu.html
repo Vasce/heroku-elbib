@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block menucss %}
+	<link rel="stylesheet" type="text/css" href="{% block css %}{% endblock %}">
+{% endblock %} 
+
+    {% block menu %}
+        <input type="checkbox" id="nav-toggle" hidden>
+        <nav class="nav">
+            <label for="nav-toggle" class="nav-toggle" onclick></label>
+            <ul>
+                <li><a href="{% url 'poisk' %}">Расширенный поиск</a>
+                <li><a href="{% url 'main' %}">На главную</a>
+                <li><a href="{% url 'favorite' %}">Избранное</a> 
+                <li><a href="{% url 'spravka' %}">Справка</a> 
+                <li><a href="{% url 'logout' %}">Выход</a>
+            </ul>
+        </nav>
+        <div class="mask-content"></div>
+    {% endblock %}

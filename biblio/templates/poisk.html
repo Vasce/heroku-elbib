@@ -1,0 +1,77 @@
+{% extends "menu.html" %}
+
+{% load static %}
+
+{% block title %}
+    Расширенный поиск
+{% endblock %}
+
+{% block css %}
+	{% static 'css/poisk.css' %}
+{% endblock %}
+
+{% block content %}
+
+    <!-- <input type="checkbox" id="nav-toggle" hidden>
+    <nav class="nav">
+        <label for="nav-toggle" class="nav-toggle" onclick></label>
+        <ul>
+            <li><a href="{% url 'poisk' %}">Расширенный поиск</a>
+            <li><a href="{% url 'main' %}">На главную</a>
+            <li><a href="#">Избранное</a> 
+            <li><a href="{% url 'spravka' %}">Справка</a> 
+            <li><a href="{% url 'logout' %}">Выход</a>
+        </ul>
+    </nav>
+    <div class="mask-content"></div> -->
+
+        
+    
+        <div class="backgr">
+            <div class="header-cont fix">
+                <div id="logotype">
+                    <img id="logo" src="/static/css/logo.png">
+                </div>
+
+                <div id="advanced_search">
+                    <h3>РАСШИРЕННЫЙ ПОИСК</h3>
+                </div>
+
+                <div class="profile"> 
+                    <div>
+                        <img id="profile-logo" src="/static/css/profile2.jpeg">
+                    </div>     
+    
+                    <div id="profilename">
+                        <p> {{request.user}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    
+         
+            <div id="search" class="fix">
+                <div class="search">
+                    <input  class="element_search" type="search" name="search_author" placeholder="Автор">
+                    <input class="element_search" type="search" name="search_title" placeholder="Название">
+                
+    
+                    <select class="element_search" name="razdel" class="razdel" >
+                        <optgroup label="Прикладная информатика">
+                        <option value="r1">Сайтостроение</option>
+                        <option value="r2">Алгоритмизация</option>
+                        <option value="r3">ОСиС</option>
+                        </optgroup>
+                        <optgroup label="Библиотечное дело">
+                        <option value="u1">БИС</option>
+                        <option value="u2">АСОД</option>
+                        <option value="u3">БФ</option>
+                        </optgroup>
+                    </select>
+
+                    <button class="element_search btnsearch">НАЙТИ</button> 
+                </div>
+            </div>    
+{% endblock %}
+

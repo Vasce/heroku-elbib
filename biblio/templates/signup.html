@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+	Электронная библиотека - Регистрация
+{% endblock %}
+
+{% block css %}
+	{% static 'css/lib.css' %}
+{% endblock %}
+
+{% block content %}
+	<main>
+		<div>
+            <div id="head">
+                <img id="logo" src="static/css/logotype.png">
+            </div>
+        </div>
+
+			<form method="POST">
+				{% csrf_token %}
+
+				<div class="registr">
+					<h1 class="reg">РЕГИСТРАЦИЯ</h1>
+					<div class="forms">
+						<div class="form">
+							<input type="text" name="username" placeholder="Логин">
+						</div>
+						<div class="form">
+							<input type="password" name="password" placeholder="Пароль">
+						</div>
+						<div class="form">
+							<input type="password" name="pass_retry" placeholder="Подтвердите пароль">
+						</div>
+					</div>
+
+					<div class="buttons">
+						<button type='submit' class="button">Регистрация</button>
+						<!-- <input class="button" type='submit' value="Sign Up">Регистрация</input> -->
+					</div>
+			</form>
+
+			<div class="enter">
+				<p>Вы уже зарегистрированы?</p>
+				<a href="/signin" class="button-enter">Тогда войдите</a>
+			</div>
+			
+			<div class="message">
+				{% if request.err == 'wrong_retry' %}
+					<div>Пароль не совпадает.</div>
+				{% elif request.err == 'empty' %}
+					<div>Не все поля заполнены.</div>
+				{% elif request.err == 'user_exists' %}
+					<div>Пользователь {{request.exiting_user}} уже существует.</div>
+				{% endif %}
+			</div>
+		</div>
+
+		
+		<div class="btnsignup">
+			<a href="{% url 'spravka' %}"><button class="btnup">Справка</button></a>
+		</div>
+
+
+	</main>
+	{% endblock %}

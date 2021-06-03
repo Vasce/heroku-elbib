@@ -1,0 +1,109 @@
+{% extends "menu.html" %}
+
+{% load static %}
+
+{% block title %}
+    Электронная библиотека - Поиск
+{% endblock %}
+
+{% block css %}
+	{% static 'css/page-4.css' %}
+{% endblock %}
+
+
+{% block content %}
+
+	<!-- <input type="checkbox" id="nav-toggle" hidden>
+	<nav class="nav">
+		<label for="nav-toggle" class="nav-toggle" onclick></label>
+		<ul>
+			<li><a href="{% url 'poisk' %}">Расширенный поиск</a>
+			<li><a href="{% url 'main' %}">На главную</a>
+			<li><a href="{% url 'favorite' %}">Избранное</a>
+			<li><a href="{% url 'spravka' %}">Справка</a> 
+			<li><a href="{% url 'logout' %}">Выход</a>
+		</ul>
+	</nav>
+	<div class="mask-content"></div> -->
+
+	<!-- <div id="okno">
+		Всплывающее окошко!<br>
+		<a href="#" class="close">Закрыть окно</a>
+	</div>
+	   
+	  <a href="#okno">Вызвать всплывающее окно</a>
+  
+	  <div id="zatemnenie">
+		<div id="okno">
+		  Всплывающее окошко!<br>
+		  <a href="#" class="close">Закрыть окно</a>
+		</div>
+	  </div>  -->
+
+	<div class="backgr">
+		<div class="header-cont fix">
+			<div id="logotype">
+				<img id="logo" src="/static/css/logo.png">
+			</div>
+
+			<form method="GET" class="search" action="{% url 'page' %}">
+				<div class="search-text">
+					<input type="text" name="search_string" placeholder="Что хотите найти?">
+				</div>
+
+				<div>
+					<input type="submit" name="" class="search-button">
+				</div>
+			</form>
+			
+			<div class="profile"> 
+				<div>
+					<img id="profile-logo" src="/static/css/profile2.jpeg">
+				</div>
+						
+
+				<div id="profilename">
+					<p>	{{request.user}}</p>
+				</div>
+			</div>
+		</div>
+	</div>	
+	
+		{% if not object_list %}
+		<div style="justify-content: center; display: flex; margin: 20px;">Нет результатов</div>
+		{% endif %}
+
+	<div class="block-book fix">
+
+		<ul>
+			{% for content in object_list %}
+
+				<div class="book1">
+					<hr>
+					
+					<div class="cont">
+						<div class="pic">
+							<img src="{{  content.image.url }}">
+						</div>
+		
+						<div class="title-author" style="font-family: 'Noto Sans', sans-serif">
+							<div id="author" style="color: black;">{{ content.author }}</div>
+							<div id="title">{{ content.title }}</div>
+							<div id="bo">{{ content.bo }}</div>
+						</div>
+
+						<div>
+							<a class="btn" href='{{ content.book.url }}' target="_blank" >Читать</a>
+							<a class="btn" href='{{ content.book.url }}' download>Скачать</a>
+							<a class="btn" href="{% url 'add' pk=content.pk %}">В&nbsp;избранное</a>
+						</div>
+
+					</div>
+					<hr>
+				</div>	
+
+			{% endfor %}
+		</ul>
+	</div>
+
+{% endblock %}
