@@ -1,1 +1,1 @@
-web: gunicorn vikilib.wsgi --log-file -
+web: gunicorn elbib.wsgi --log-file -
