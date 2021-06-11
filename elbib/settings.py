@@ -86,7 +86,16 @@ DATABASES = {
     }
 }
 
-DATABASES['default'].update(prod_db)
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'vikilib',
+        'USER': 'viki_admin',
+        'PASSWORD': 'vikiadminpass',
+        'HOST': '178.250.240.173',
+        'PORT': '5432',
+    }
+}
 
 
 
