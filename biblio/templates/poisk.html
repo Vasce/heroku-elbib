@@ -59,7 +59,13 @@
                     
         
                         <select class="element_search" name="razdel" class="razdel" >
-                            <optgroup label="Прикладная информатика">
+                            <option value="">---</option>
+                            {% for cat in categories %}
+                            <option value={{ cat.name }}>
+                                {{ cat.name }}
+                            </option>
+                            {% endfor %}
+                            <!-- <optgroup label="Прикладная информатика">
                             <option value="r1">Сайтостроение</option>
                             <option value="r2">Алгоритмизация</option>
                             <option value="r3">ОСиС</option>
@@ -68,7 +74,7 @@
                             <option value="u1">БИС</option>
                             <option value="u2">АСОД</option>
                             <option value="u3">БФ</option>
-                            </optgroup>
+                            </optgroup> -->
                         </select>
 
                         <button class="element_search btnsearch">НАЙТИ</button> 

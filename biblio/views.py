@@ -5,7 +5,7 @@ from django.views import View
 from django.http import HttpResponseForbidden, HttpResponseNotFound, HttpResponse
 from django.views import generic
 
-from .models import Content, Favorite
+from .models import Category, Content, Favorite
 from django.db.models import Q
 
 
@@ -87,27 +87,31 @@ class PageView(generic.ListView):
     model = Content
     context_object_name = 'page'
     template_name = 'page.html'
+    
     def get_queryset(self):
+        print(">>>>PageView GET>>>", self.request.GET)
         query = self.request.GET.get('search_string')
         q_author = self.request.GET.get('search_author')
         q_title = self.request.GET.get('search_title')
-        q_subject = self.request.GET.get('razdel')
+        q_cat = self.request.GET.get('razdel')
         
         if query != None and query != '':
             return Content.objects.filter(Q(author__icontains=query) | Q(title__icontains=query))
-        elif q_author or q_title or q_subject:
-            if q_author == None or q_author == '':
-                q_author = '-----'
-            if q_title == None or q_title == '':
-                q_title = '-----'
-            return Content.objects.filter(Q(author__icontains=q_author) | Q(title__icontains=q_title))
+        elif q_author or q_title or q_cat:
+            return Content.objects.filter(Q(author__icontains=q_author) & Q(title__icontains=q_title) & Q(razdel__name__icontains=q_cat))
         return None
 
 
-class PoiskView(View):
+class PoiskView(generic.ListView):
     model = Content
-    def get(self, request):
-        return render(request, "poisk.html")
+    template_name = "poisk.html"
+    # def get(self, request):
+    #     return render(request, "poisk.html")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = Category.objects.all()
+        return context
 
 
 class SpravkaView(View):
