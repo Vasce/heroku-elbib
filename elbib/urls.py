@@ -34,4 +34,3 @@ urlpatterns = [
     path('favorite_add/<int:pk>', add_to_favorite, name='add'),
     path('favorite_remove/<int:pk>', remove_from_favorite, name='remove'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + staticfiles_urlpatterns()
-
