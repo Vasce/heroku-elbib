@@ -101,6 +101,11 @@ class PageView(generic.ListView):
             return Content.objects.filter(Q(author__icontains=q_author) & Q(title__icontains=q_title) & Q(razdel__name__icontains=q_cat))
         return None
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['search_value'] = self.request.GET.get('search_string')
+        return context
+
 
 class PoiskView(generic.ListView):
     model = Content

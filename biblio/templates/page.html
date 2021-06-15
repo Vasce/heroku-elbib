@@ -13,33 +13,6 @@
 
 {% block content %}
 
-	<!-- <input type="checkbox" id="nav-toggle" hidden>
-	<nav class="nav">
-		<label for="nav-toggle" class="nav-toggle" onclick></label>
-		<ul>
-			<li><a href="{% url 'poisk' %}">Расширенный поиск</a>
-			<li><a href="{% url 'main' %}">На главную</a>
-			<li><a href="{% url 'favorite' %}">Избранное</a>
-			<li><a href="{% url 'spravka' %}">Справка</a> 
-			<li><a href="{% url 'logout' %}">Выход</a>
-		</ul>
-	</nav>
-	<div class="mask-content"></div> -->
-
-	<!-- <div id="okno">
-		Всплывающее окошко!<br>
-		<a href="#" class="close">Закрыть окно</a>
-	</div>
-	   
-	  <a href="#okno">Вызвать всплывающее окно</a>
-  
-	  <div id="zatemnenie">
-		<div id="okno">
-		  Всплывающее окошко!<br>
-		  <a href="#" class="close">Закрыть окно</a>
-		</div>
-	  </div>  -->
-
 	<div class="backgr">
 		<div class="header-cont fix">
 			<div id="logotype">
@@ -48,7 +21,7 @@
 
 			<form method="GET" class="search" action="{% url 'page' %}">
 				<div class="search-text">
-					<input type="text" name="search_string" placeholder="Что хотите найти?">
+					<input type="text" name="search_string" placeholder="Что хотите найти?" value="{{ search_value|default:"" }}">
 				</div>
 
 				<div>
