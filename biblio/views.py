@@ -89,7 +89,6 @@ class PageView(generic.ListView):
     template_name = 'page.html'
     
     def get_queryset(self):
-        print(">>>>PageView GET>>>", self.request.GET)
         query = self.request.GET.get('search_string')
         q_author = self.request.GET.get('search_author')
         q_title = self.request.GET.get('search_title')
